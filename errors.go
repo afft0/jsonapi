@@ -42,11 +42,18 @@ type ErrorObject struct {
 	// Status is the HTTP status code applicable to this problem, expressed as a string value.
 	Status string `json:"status,omitempty"`
 
+	Source ErrorPointer `json:"source,omitempty"`
+
 	// Code is an application-specific error code, expressed as a string value.
 	Code string `json:"code,omitempty"`
 
 	// Meta is an object containing non-standard meta-information about the error.
 	Meta *map[string]interface{} `json:"meta,omitempty"`
+}
+
+type ErrorPointer struct {
+	Pointer string  `json:"pointer,omitempty"`
+	Parameter string  `json:"parameter,omitempty"`
 }
 
 // Error implements the `Error` interface.
